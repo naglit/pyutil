@@ -37,6 +37,13 @@ def get_filenames(path):
     for filename in onlyfiles:
         print(filename)
 
+def get_filenames_recursively(dir_path):
+    file_list = []
+    for root, dirs, files in os.walk(dir_path):
+        for file in files:
+            file_list.append(os.path.join(root, file))
+    return file_list
+
 def get_dirpath_containing_file_being_interpreted():
     path = os.path.dirname(os.path.realpath(__file__))
     return path
