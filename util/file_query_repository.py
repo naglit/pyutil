@@ -12,15 +12,11 @@ def read_file(file_path, charset="utf-8"):
         for line in fin.readlines():
             lines.append(line.replace("\r\n", "\n"))
         return lines
-    
+
 def read_json(json_path_arg):
-    # json_name = "spec.json" if json_path_arg == None else json_path_arg
     if json_path_arg == "":
         print("The json path is empty.")
         return
-
-    # json_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", json_name)
-    print(json_path_arg)
     with open(json_path_arg, 'r',encoding="utf-8") as f:
         config = json.load(f)
         return config
@@ -41,12 +37,13 @@ def get_dirpath_containing_file_being_interpreted():
     path = os.path.dirname(os.path.realpath(__file__))
     return path
 
-
-
 def path_join(directory, *items):
     joinned_path = directory
     for item in items: joinned_path = os.path.join(joinned_path, item)
     return joinned_path
+
+def append_path_to_current_dir(*items):
+    return path_join(get_current_dir(), *items)
 
 def get_current_dir():
     return sys.path[0]
