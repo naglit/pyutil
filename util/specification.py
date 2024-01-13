@@ -12,7 +12,6 @@ import configparser
     
 def read_json_config(path, charset="utf-8"):
     """ read a config """
-
     with open(path, 'r',encoding=charset) as f:
         config = json.load(f)
         return config

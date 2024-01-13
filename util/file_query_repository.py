@@ -4,7 +4,7 @@ from os.path import isfile, join
 import sys
 import json
 
-def read_file(file_path, charset="utf-8"):
+def read_file(file_path, charset="utf-8") -> list[str]:
     """ read a file and return liens """
     
     with open(file_path, encoding=charset) as fin:
@@ -42,8 +42,12 @@ def path_join(directory, *items):
     for item in items: joinned_path = os.path.join(joinned_path, item)
     return joinned_path
 
+def append_path(parent_path: str, *items):
+    return path_join(parent_path, *items)
+
 def append_path_to_current_dir(*items):
     return path_join(get_current_dir(), *items)
 
 def get_current_dir():
     return sys.path[0]
+
