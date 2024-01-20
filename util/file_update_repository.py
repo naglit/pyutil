@@ -2,9 +2,8 @@ import sys, os
 from os import listdir
 from os.path import isfile, join
 
-def write_file(file_name, lines, charset="utf-8"):
+def write_file(file_name: str, lines: list[str], charset="utf-8"):
     """ write lines into a file """
-
     file_path = file_name
     data = "".join(lines)
     if "-d" in sys.argv:
