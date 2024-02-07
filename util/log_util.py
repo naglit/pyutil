@@ -1,3 +1,6 @@
 def print_with_newline(message):
-    print(message)
+    info(message)
     print("")
+
+def info(message: str):
+    print(message)
